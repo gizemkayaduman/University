@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Giriş Yap";
+}
+
+<h2>@ViewBag.Role Giriş</h2>
+
+@section Styles {
+    <style>
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Yükseklik: Görünümün %80'i */
+        }
+
+        .login-form {
+            background-color: #f8f9fa; /* Hafif gri arka plan */
+            border: 1px solid #e0e0e0; /* Kenar rengi */
+            border-radius: 10px; /* Hafif yuvarlatılmış köşeler */
+            padding: 30px; /* İç boşluk */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+            max-width: 400px; /* Maksimum genişlik */
+            width: 100%;
+        }
+
+        .login-title {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0d6efd;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            width: 100%; /* Buton genişliği tam olsun */
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        .alert-danger {
+            margin-top: 15px;
+        }
+    </style>
+}
+
+<div class="login-container">
+    <form action="@Url.Action("Login", "Account")" method="post" class="login-form">
+        <h2 class="login-title">@ViewBag.Role Giriş</h2>
+
+        <div class="form-group">
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Kullanıcı Adınızı Girin" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Şifrenizi Girin" required />
+        </div>
+        <input type="hidden" name="role" value="@ViewBag.Role" />
+        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger text-center">@ViewBag.Error</div>
+        }
+    </form>
+</div>
+
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+}

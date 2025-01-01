@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Rol Seçimi";
+}
+
+@section Styles {
+    <style>
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .menu-button {
+            display: inline-block;
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            color: white;
+            background-color: #0d6efd;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .menu-button:hover {
+                background-color: #084298;
+            }
+    </style>
+}
+
+<div class="container text-center">
+    <h2 class="mt-4">Rol Seçimi</h2>
+    <p>Lütfen bir rol seçin:</p>
+
+    <div class="menu-container">
+        <a href="@Url.Action("Login", "Account", new { role = "Ogrenci" })" class="menu-button">Öğrenci</a>
+        <a href="@Url.Action("Login", "Account", new { role = "BolumSekreteri" })" class="menu-button">Bölüm Sekreteri</a>
+    </div>
+</div>
+

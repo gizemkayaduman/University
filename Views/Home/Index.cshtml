@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Ana Menü";
+}
+
+@section Styles {
+    <style>
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .menu-button {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            color: white;
+            background-color: #0d6efd;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .menu-button:hover {
+            background-color: #084298;
+        }
+    </style>
+}
+
+<div class="container text-center">
+    <h1 class="mt-4">Üniversite Sistemine Hoş Geldiniz</h1>
+    <p class="lead">Lütfen aşağıdaki menüden yapmak istediğiniz işlemi seçin.</p>
+
+    <div class="menu-container">
+        <a href="@Url.Action("SelectRole", "Account")" class="menu-button">Öğrenci / Bölüm Sekreteri Girişi</a>
+        <a href="@Url.Action("Dersler", "DersProgrami")" class="menu-button">Bölüm Ders Programı Görüntüleme</a>
+        <a href="@Url.Action("OgrenciProgram", "Student")" class="menu-button">Öğrenci Kendi Ders Programı Görüntüleme</a>
+        <a href="@Url.Action("DersEkleCikar", "Student")" class="menu-button">Öğrenci Ders Ekle/Çıkar</a>
+        <a href="@Url.Action("OgrenciEkleCikar", "BolumSekreteri")" class="menu-button">Bölüm Sekreteri Öğrenci Ekle/Çıkar</a>
+        <a href="@Url.Action("DersProgramiEkleCikar", "BolumSekreteri")" class="menu-button">Bölüm Sekreteri Ders Programına Ders Ekle/Çıkar</a>
+    </div>
+</div>
